@@ -3,88 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ma Boutique | Détail</title>
+  <title>ALISEYDI | Détail du produit</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <div class="top-bar">
-      <button class="icon-btn" id="dark-mode-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
-      <a href="index.html" class="logo">Ma Boutique</a>
-      <div class="header-icons">
-        <a href="panier.html" class="icon-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          <span class="badge" id="cart-count">0</span>
+  <!-- HEADER ALISEYDI -->
+  <header class="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10 L85 85 H65 L50 50 L35 85 H15 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M40 45 V35 C40 25 60 25 60 35 V45" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <rect x="35" y="45" width="30" height="25" rx="3" stroke="currentColor" stroke-width="4"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">ALISEYDI</span>
+          <span class="logo-subtitle">Boutique en ligne</span>
+        </div>
+      </a>
+
+      <div class="header-divider"></div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">ACCUEIL</a>
+        <a href="boutique.html" class="nav-link">BOUTIQUE</a>
+        <a href="blog.html" class="nav-link">BLOG</a>
+        <a href="contact.html" class="nav-link">CONTACT</a>
+        <a href="dashboard.html" class="nav-link">DASHBOARD</a>
+      </nav>
+
+      <div class="header-divider"></div>
+
+      <div class="header-actions">
+        <a href="panier.html" class="action-btn" aria-label="Panier">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          <span class="cart-badge" id="cart-count">0</span>
         </a>
-        <a href="wishlist.html" class="icon-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <a href="wishlist.html" class="action-btn" aria-label="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
         </a>
+        <button class="action-btn" id="dark-mode-btn" aria-label="Mode sombre">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+        </button>
       </div>
     </div>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="produits.html">Produits</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="panier.html">Panier</a>
-    </nav>
   </header>
 
-  <main>
-    <div id="product-detail" class="detail-container">
-      <!-- Rempli par JS -->
+  <!-- CONTENU -->
+  <main style="min-height: 70vh; padding: 4rem 2rem;">
+    <div id="product-detail" class="detail-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; background: var(--bg-card); padding: 3rem; border: 1px solid var(--border); border-radius: 12px;">
+      
+      <!-- Un écran de chargement en attendant les données -->
+      <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">
+        <h2>Chargement du produit...</h2>
+      </div>
+
     </div>
   </main>
 
-  <footer>
-    <div class="logo">Ma Boutique</div>
-    <p>&copy; 2026 Ma Boutique — Tous droits réservés.</p>
+  <!-- FOOTER ALISEYDI PREMIUM -->
+  <footer class="aliseydi-footer">
+    <div class="footer-cta-section">
+      <div class="footer-cta-content">
+        <h2>Prêt à sublimer votre style ?</h2>
+        <p>Découvrez notre collection exclusive et laissez-vous inspirer par l'élégance à la française.</p>
+        <a href="boutique.html" class="btn btn-solid">Découvrir la boutique</a>
+      </div>
+    </div>
+    <div class="footer-main-section">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">ALISEYDI</div>
+          <p class="tagline">L'élégance qui fait la différence.</p>
+        </div>
+        <div class="footer-col">
+          <h4>La Maison</h4>
+          <ul>
+            <li><a href="#">À propos de nous</a></li>
+            <li><a href="#">Nos collections</a></li>
+            <li><a href="#">Nos boutiques</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Boutique</h4>
+          <ul>
+            <li><a href="boutique.html">Tous les produits</a></li>
+            <li><a href="boutique.html">Parfums</a></li>
+            <li><a href="boutique.html">Vêtements</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="contact-list">
+            <li>contact@aliseydi.com</li>
+            <li>+221 77 000 00 00</li>
+            <li>Dakar, Sénégal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 ALISEYDI. Tous droits réservés.</div>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/data.js"></script>
+  <!-- SCRIPTS -->
+  <script src="js/api.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const id = parseInt(params.get('id'));
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Récupérer l'ID du produit depuis l'URL (?id=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
       const container = document.getElementById('product-detail');
-      const product = products.find(p => p.id === id);
 
-      if (!product) {
-        container.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;"><h2>Produit introuvable</h2><a href="produits.html" class="btn btn-solid" style="margin-top:2rem;">Retour aux produits</a></div>`;
+      if (!productId) {
+        container.innerHTML = `<h2 style="grid-column:1/-1; text-align:center; color:var(--danger);">Erreur : Aucun produit sélectionné.</h2>`;
         return;
       }
 
-      const wish = getWishlist();
-      const isWished = wish.includes(product.id);
+      try {
+        // 2. Demander les infos du produit au Backend
+        const res = await api.get(`/products/${productId}`);
+        const product = res.data;
 
-      container.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="detail-img">
-        <div class="detail-info">
-          <span class="card-category">${product.category}</span>
-          <h1>${product.name}</h1>
-          <p class="detail-price">${product.price.toLocaleString('fr-FR')} FCFA</p>
-          <p class="detail-desc">${product.description}</p>
+        // 3. Afficher le produit
+        container.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px;">
           
-          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-            <button class="btn btn-solid" id="add-cart-btn" style="flex: 1;">Ajouter au panier</button>
-            <button class="btn btn-outline" id="wish-btn" style="flex: 1;">
-              ${isWished ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-            </button>
+          <div style="display: flex; flex-direction: column; justify-content: center;">
+            <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 1rem;">
+              ${product.category}
+            </span>
+            <h1 style="font-family: var(--font-title); font-size: 3rem; color: var(--text-main); margin-bottom: 1rem;">
+              ${product.name}
+            </h1>
+            <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 2rem;">
+              ${product.price.toLocaleString('fr-FR')} FCFA
+            </div>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 3rem; font-size: 1.1rem;">
+              ${product.description}
+            </p>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button class="btn btn-solid" onclick="addToCart('${product._id}')" style="flex: 1; padding: 1.2rem;">
+                Ajouter au panier
+              </button>
+              <button class="btn btn-outline" onclick="toggleWishlist('${product._id}')" style="flex: 1; padding: 1.2rem;">
+                Ajouter aux favoris
+              </button>
+            </div>
           </div>
-        </div>
-      `;
-
-      document.getElementById('add-cart-btn').addEventListener('click', () => addToCart(product.id));
-      
-      document.getElementById('wish-btn').addEventListener('click', (e) => {
-        addToWishlist(product.id);
-        // Mettre à jour le texte du bouton
-        const isNowWished = getWishlist().includes(product.id);
-        e.target.textContent = isNowWished ? 'Retirer des favoris' : 'Ajouter aux favoris';
-      });
+        `;
+      } catch (error) {
+        console.error(error);
+        container.innerHTML = `<h2 style="grid-column:1/-1; text-align:center; color:var(--danger);">Produit introuvable.</h2>`;
+      }
     });
   </script>
 </body>
