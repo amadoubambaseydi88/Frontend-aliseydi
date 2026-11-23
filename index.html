@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Boutique | L'Art du Luxe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="header-inner">
+    
+    <!-- 1. LOGO (Gauche) -->
+    <a href="index.html" class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 L85 85 H65 L50 50 L35 85 H15 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M40 45 V35 C40 25 60 25 60 35 V45" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <rect x="35" y="45" width="30" height="25" rx="3" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">ALISEYDI</span>
+        <span class="logo-subtitle">Boutique en ligne</span>
+      </div>
+    </a>
+
+    <div class="header-divider"></div>
+
+    <!-- 2. NAVIGATION -->
+    <nav class="header-nav" id="main-nav">
+      <a href="index.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+        ACCUEIL
+      </a>
+      <a href="boutique.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+        BOUTIQUE
+      </a>
+      <a href="blog.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+        BLOG
+      </a>
+      <a href="contact.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        CONTACT
+      </a>
+      <a href="dashboard.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+        DASHBOARD
+      </a>
+    </nav>
+
+    <div class="header-divider"></div>
+
+        <!-- 3. ACTIONS (Droite) -->
+    <div class="header-actions">
+      
+      <!-- Panier -->
+      <a href="panier.html" class="action-btn" aria-label="Panier">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+
+      <!-- Wishlist -->
+      <a href="wishlist.html" class="action-btn" aria-label="Wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+      </a>
+
+      <!-- Bouton Dark Mode (La Lune) -->
+      <button class="action-btn" id="dark-mode-btn" aria-label="Mode sombre">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+  <main style="padding: 0; max-width: 100%;">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">L'élégance à portée de main</span>
+        <h1>L'Art de la Sélection</h1>
+        <p>Découvrez une curation de produits d'exception. Des pièces uniques pour un style intemporel.</p>
+        <a href="produits.html" class="btn btn-primary">Découvrir la collection</a>
+      </div>
+    </section>
+
+    <div style="max-width: 1300px; margin: 0 auto; padding: 2rem;">
+      <h2 class="section-title">Nos Best-Sellers</h2>
+      <div class="grid" id="featured-products"></div>
+    </div>
+  </main>
+  
+<footer class="aliseydi-footer">
+  <!-- Partie Haute : Appel à l'action -->
+  <div class="footer-cta-section">
+    <div class="footer-cta-content">
+      <h2>Prêt à sublimer votre style ?</h2>
+      <p>Découvrez notre collection exclusive et laissez-vous inspirer par l'élégance à la française.</p>
+      <a href="boutique.html" class="btn btn-solid">Découvrir la boutique</a>
+    </div>
+  </div>
+
+  <!-- Partie Milieu : Liens et Infos -->
+  <div class="footer-main-section">
+    <div class="footer-grid">
+      
+      <!-- Colonne Logo -->
+      <div class="footer-brand">
+        <div class="logo">ALISEYDI</div>
+        <p class="tagline">L'élégance qui fait la différence.</p>
+      </div>
+
+      <!-- Colonne 1 -->
+      <div class="footer-col">
+        <h4>La Maison</h4>
+        <ul>
+          <li><a href="#">À propos de nous</a></li>
+          <li><a href="#">Nos collections</a></li>
+          <li><a href="#">Nos boutiques</a></li>
+          <li><a href="#">Carrières</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 2 -->
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="boutique.html">Tous les produits</a></li>
+          <li><a href="boutique.html">Parfums</a></li>
+          <li><a href="boutique.html">Vêtements</a></li>
+          <li><a href="boutique.html">Accessoires</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            contact@aliseydi.com
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            +221 77 000 00 00
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Dakar, Sénégal
+          </li>
+        </ul>
+      </div>
+
+      <!-- Colonne 4 : Réseaux Sociaux -->
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Partie Basse : Copyright -->
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 ALISEYDI. Tous droits réservés.</div>
+      <div class="legal-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const featured = document.getElementById('featured-products');
+      // Afficher les 4 premiers produits
+      products.slice(0, 6).forEach(p => featured.appendChild(createProductCard(p)));
+    });
+  </script>
+</body>
+</html>
