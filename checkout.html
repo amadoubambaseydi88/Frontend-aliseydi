@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALISEYDI | Paiement</title>
+  
+  <!-- 1. AXIOX -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -52,31 +54,31 @@
   </header>
 
   <!-- CONTENU CHECKOUT -->
-  <main>
-    <h1 class="section-title" style="text-align: center; margin-top: 3rem;">Finaliser la commande</h1>
+  <main style="min-height: 70vh; padding: 4rem 2rem;">
+    <h1 class="section-title" style="text-align: center; margin-bottom: 3rem;">Finaliser la commande</h1>
     
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; max-width: 1000px; margin: 3rem auto; padding: 0 2rem;">
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
       
-      <!-- FORMULAIRE CLIENT -->
+      <!-- FORMULAIRE -->
       <form id="checkout-form" style="background: var(--bg-card); padding: 2.5rem; border: 1px solid var(--border); border-radius: 12px; display: flex; flex-direction: column; gap: 1.5rem;">
         <h3 style="font-family: var(--font-title); font-size: 1.8rem; color: var(--primary);">Informations de livraison</h3>
         
-        <input type="text" placeholder="Prénom" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
-        <input type="text" placeholder="Nom" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
-        <input type="text" placeholder="Adresse complète de livraison" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+        <input type="text" id="firstName" placeholder="Prénom" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+        <input type="text" id="lastName" placeholder="Nom" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+        <input type="text" id="address" placeholder="Adresse complète de livraison" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
         
         <h3 style="font-family: var(--font-title); font-size: 1.8rem; margin-top: 1rem; color: var(--primary);">Paiement sécurisé</h3>
         
-        <select required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+        <select id="paymentMethod" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
           <option value="">-- Choisir un mode de paiement --</option>
-          <option value="wave">Wave</option>
-          <option value="orange">Orange Money</option>
-          <option value="carte">Carte Bancaire</option>
+          <option value="Wave">Wave</option>
+          <option value="Orange Money">Orange Money</option>
+          <option value="Carte Bancaire">Carte Bancaire</option>
         </select>
         
-        <input type="text" placeholder="Numéro de téléphone (Wave/OM) ou Carte" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+        <input type="text" id="phone" placeholder="Numéro de téléphone ou Carte" required style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem;">
         
-        <button type="submit" class="btn btn-solid" style="margin-top: 1rem; width: 100%; padding: 1.2rem; font-size: 1.1rem;">Confirmer et Payer</button>
+        <button type="submit" class="btn btn-solid" id="submit-btn" style="margin-top: 1rem; width: 100%; padding: 1.2rem; font-size: 1.1rem;">Confirmer et Payer</button>
       </form>
       
       <!-- RÉSUMÉ -->
@@ -89,7 +91,7 @@
     </div>
   </main>
 
-  <!-- FOOTER (Version simple pour ne pas surcharger) -->
+  <!-- FOOTER SIMPLIFIÉ -->
   <footer class="aliseydi-footer">
   <!-- Partie Haute : Appel à l'action -->
   <div class="footer-cta-section">
@@ -180,32 +182,70 @@
     </div>
   </div>
 </footer>
+</div>
+  </footer>
 
   <!-- SCRIPTS -->
+  <script src="js/api.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Vérifie si l'utilisateur a des articles dans le panier (via localStorage ou Axios)
-    // Ici, on met un faux total pour l'exemple visuel, à lier avec ton panier
     document.addEventListener('DOMContentLoaded', () => {
-      // Si tu utilises le localStorage pour le panier :
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      if(cart.length > 0) {
-        // Calcul simple (à adapter avec les vrais prix)
-        document.getElementById('checkout-total').textContent = "85 000 FCFA"; 
-      } else {
-        // Optionnel : rediriger si le panier est vide
-        // window.location.href = 'panier.html';
-        document.getElementById('checkout-total').textContent = "0 FCFA";
-      }
-    });
+      // 1. On récupère le panier depuis le localStorage
+      const cart = getCart();
+      
+      // 2. On calcule le total
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      
+      // 3. On affiche le total
+      document.getElementById('checkout-total').textContent = total.toLocaleString('fr-FR') + ' FCFA';
 
-    // Soumission du formulaire
-    document.getElementById('checkout-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('✅ Commande passée avec succès ! Merci pour votre achat chez ALISEYDI.');
-      // Vider le panier après commande
-      localStorage.removeItem('cart');
-      window.location.href = 'index.html';
+      // 4. Gestion de la soumission du formulaire
+      document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Sécurité : si le panier est vide, on bloque
+        if (cart.length === 0) {
+          return alert("❌ Votre panier est vide. Impossible de commander.");
+        }
+
+        const btn = document.getElementById('submit-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Enregistrement...";
+        btn.disabled = true;
+
+        // 5. On prépare les données EXACTEMENT comme le modèle Mongoose (Order.js) l'attend
+        const orderData = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          address: document.getElementById('address').value,
+          paymentMethod: document.getElementById('paymentMethod').value,
+          phone: document.getElementById('phone').value, // Optionnel selon ton modèle
+          totalAmount: total,
+          items: cart, // On envoie le tableau des produits du panier
+          status: "En attente"
+        };
+
+        try {
+          // 6. ENVOI VERS LE BACKEND (Express + MongoDB)
+          await api.post('/orders', orderData); 
+          
+          // 7. Succès
+          alert('✅ Commande passée avec succès et enregistrée dans MongoDB !');
+          
+          // 8. On vide le panier local
+          saveCart([]); 
+          updateCounters();
+          
+          // 9. Redirection vers l'accueil
+          window.location.href = 'index.html';
+
+        } catch (error) {
+          console.error("Erreur commande:", error);
+          alert('❌ Erreur lors de la commande. Vérifiez que le serveur backend est allumé.');
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      });
     });
   </script>
 </body>

@@ -4,110 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALISEYDI | Boutique</title>
+  
+  <!-- 1. AXIOX -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- HEADER COMPLET -->
   <header class="main-header">
-  <div class="header-inner">
+    <div class="header-inner">
+      <a href="index.html" class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10 L85 85 H65 L50 50 L35 85 H15 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M40 45 V35 C40 25 60 25 60 35 V45" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <rect x="35" y="45" width="30" height="25" rx="3" stroke="currentColor" stroke-width="4"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">ALISEYDI</span>
+          <span class="logo-subtitle">Boutique en ligne</span>
+        </div>
+      </a>
+
+      <div class="header-divider"></div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">ACCUEIL</a>
+        <a href="boutique.html" class="nav-link">BOUTIQUE</a>
+        <a href="blog.html" class="nav-link">BLOG</a>
+        <a href="contact.html" class="nav-link">CONTACT</a>
+        <a href="dashboard.html" class="nav-link">DASHBOARD</a>
+      </nav>
+
+      <div class="header-divider"></div>
+
+      <div class="header-actions">
+        <a href="panier.html" class="action-btn" aria-label="Panier">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a>
+        <a href="wishlist.html" class="action-btn" aria-label="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+        </a>
+        <button class="action-btn" id="dark-mode-btn" aria-label="Mode sombre">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU DE LA BOUTIQUE -->
+  <main style="min-height: 70vh; padding: 4rem 2rem;">
+    <h1 class="section-title" style="text-align: center; margin-bottom: 3rem;">La Boutique</h1>
     
-    <!-- 1. LOGO (Gauche) -->
-    <a href="index.html" class="logo-container">
-      <!-- Le fameux A avec le sac de shopping en SVG -->
-      <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 L85 85 H65 L50 50 L35 85 H15 Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-        <path d="M40 45 V35 C40 25 60 25 60 35 V45" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-        <rect x="35" y="45" width="30" height="25" rx="3" stroke="currentColor" stroke-width="4"/>
-      </svg>
-      <div class="logo-text">
-        <span class="logo-title">ALISEYDI</span>
-        <span class="logo-subtitle">Boutique en ligne</span>
-      </div>
-    </a>
-
-    <!-- Séparateur -->
-    <div class="header-divider"></div>
-
-    <!-- 2. NAVIGATION (Centre) -->
-    <nav class="header-nav">
-      <a href="index.html" class="nav-link active">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-        ACCUEIL
-      </a>
-      <a href="boutique.html" class="nav-link">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-        BOUTIQUE
-      </a>
-      <a href="blog.html" class="nav-link">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
-        BLOG
-      </a>
-      <a href="contact.html" class="nav-link">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-        CONTACT
-      </a>
-      <a href="dashboard.html" class="nav-link">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-        DASHBOARD
-      </a>
-    </nav>
-
-    <!-- Séparateur -->
-    <div class="header-divider"></div>
-
-        <!-- 3. ACTIONS (Droite) -->
-    <div class="header-actions">
-      
-      <!-- Panier -->
-      <a href="panier.html" class="action-btn" aria-label="Panier">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-        <span class="cart-badge" id="cart-count">0</span>
-      </a>
-
-      <!-- Wishlist -->
-      <a href="wishlist.html" class="action-btn" aria-label="Wishlist">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-      </a>
-
-      <!-- Bouton Dark Mode (La Lune) -->
-      <button class="action-btn" id="dark-mode-btn" aria-label="Mode sombre">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-      </button>
-
-    </div>
-
-  </div>
-</header>
-
-  <main>
-    <h1 class="section-title">La Boutique</h1>
-    <div class="toolbar">
-      <div class="search-box">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="search" placeholder="Rechercher une pièce...">
-      </div>
-      <select id="sort">
-        <option value="default">Trier par défaut</option>
-        <option value="asc">Prix croissant</option>
-        <option value="desc">Prix décroissant</option>
-        <option value="az">Nom A-Z</option>
-        <option value="za">Nom Z-A</option>
-      </select>
-    </div>
-
-    <div class="filter-bar" id="category-filters">
-      <button class="filter-chip active" data-cat="all">Toutes</button>
-      <button class="filter-chip" data-cat="Parfums">Parfums</button>
-      <button class="filter-chip" data-cat="Vêtements">Vêtements</button>
-      <button class="filter-chip" data-cat="Chaussures">Chaussures</button>
-      <button class="filter-chip" data-cat="Accessoires">Accessoires</button>
-    </div>
-
-    <div class="grid" id="products-grid"></div>
-    <div id="no-result" style="display:none; text-align:center; padding: 3rem; font-size: 1.2rem; color: var(--text-muted);">Aucun produit trouvé.</div>
+    <!-- La grille qui va accueillir les produits depuis MongoDB -->
+    <div id="products-grid" class="grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;"></div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="aliseydi-footer">
   <!-- Partie Haute : Appel à l'action -->
   <div class="footer-cta-section">
@@ -199,43 +153,58 @@
   </div>
 </footer>
 
+  <!-- SCRIPTS -->
   <script src="js/api.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       const grid = document.getElementById('products-grid');
-      const search = document.getElementById('search');
-      const sortSelect = document.getElementById('sort');
-      const noResult = document.getElementById('no-result');
-      let currentCategory = 'all';
+      
+      try {
+        // On récupère les produits depuis le Backend (MongoDB)
+        const res = await api.get('/products');
+        const products = res.data;
 
-      async function loadProducts() {
-        try {
-          let url = `/products?search=${search.value}&category=${currentCategory}&sort=${sortSelect.value}`;
-          const res = await api.get(url);
-          grid.innerHTML = '';
-          
-          if (res.data.length === 0) { noResult.style.display = 'block'; } 
-          else {
-            noResult.style.display = 'none';
-            res.data.forEach(p => grid.appendChild(createProductCard(p)));
-          }
-          updateHeaderState();
-        } catch (error) { console.error(error); }
-      }
+        // On génère les cartes produits
+        products.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.style.background = 'var(--bg-card)';
+          card.style.border = '1px solid var(--border)';
+          card.style.padding = '1.5rem';
+          card.style.borderRadius = '12px';
+          card.style.display = 'flex';
+          card.style.flexDirection = 'column';
 
-      document.querySelectorAll('.filter-chip').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-          e.target.classList.add('active');
-          currentCategory = e.target.dataset.cat;
-          loadProducts();
+          // Création du HTML de la carte (Avec le bouton Ajouter !)
+          card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" style="width:100%; height:250px; object-fit:cover; border-radius:8px; margin-bottom: 1rem;">
+            <div style="text-align: center; flex: 1; display: flex; flex-direction: column;">
+              <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">${product.category}</span>
+              <h3 style="font-family:var(--font-title); font-size:1.8rem; margin-bottom:0.5rem; color: var(--text-main);">${product.name}</h3>
+              <p style="color:var(--primary); font-weight:700; font-size:1.2rem; margin-bottom: 1.5rem;">${product.price.toLocaleString('fr-FR')} FCFA</p>
+              
+              <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem;">
+                <!-- Bouton Ajouter -->
+                <button class="btn btn-solid add-to-cart-btn" style="width: 100%; cursor: pointer;">AJOUTER AU PANIER</button>
+                <!-- Bouton Détail -->
+                <a href="produit-detail.html?id=${product._id}" class="btn btn-outline" style="width: 100%; text-align: center; display: block; border: 1px solid var(--border); background: transparent; color: var(--text-main);">VOIR LE DÉTAIL</a>
+              </div>
+            </div>
+          `;
+
+          // On attache l'événement "click" au bouton Ajouter de cette carte spécifique
+          const addBtn = card.querySelector('.add-to-cart-btn');
+          addBtn.addEventListener('click', () => {
+            addToCart(product); // La fonction addToCart de ton fichier main.js
+          });
+
+          grid.appendChild(card);
         });
-      });
-
-      search.addEventListener('input', loadProducts);
-      sortSelect.addEventListener('change', loadProducts);
-      loadProducts();
+      } catch (error) {
+        console.error("Erreur:", error);
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:red;">Impossible de charger les produits. Le serveur est-il lancé ?</p>`;
+      }
     });
   </script>
 </body>
