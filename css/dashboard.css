@@ -102,3 +102,36 @@ body {
 /* --- ONGLETS --- */
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+/* Style pour l'input file (image) */
+.form-group input[type="file"] {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background: #d4af37; /* Doré au survol */
+}
+
+/* Case à cocher personnalisée */
+input[type="checkbox"] {
+  accent-color: #d4af37; /* Couleur dorée quand on coche */
+}

@@ -89,3 +89,31 @@ function initActiveNav() {
 document.addEventListener('DOMContentLoaded', () => {
   updateCounters(); initDarkMode(); initActiveNav(); updateWishlistIcons();
 });
+
+// --- GESTION DU MENU MOBILE (BURGER) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const headerNav = document.querySelector('.header-nav');
+
+  if (mobileMenuBtn && headerNav) {
+    // Ouvrir / Fermer au clic sur le burger
+    mobileMenuBtn.addEventListener('click', () => {
+      headerNav.classList.toggle('active');
+      
+      // Changer l'icône (Croix si ouvert, Burger si fermé)
+      if (headerNav.classList.contains('active')) {
+        mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+      } else {
+        mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+      }
+    });
+
+    // Fermer le menu quand on clique sur un lien (pour changer de page)
+    headerNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        headerNav.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+      });
+    });
+  }
+});

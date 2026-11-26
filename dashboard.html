@@ -81,20 +81,14 @@
         </div>
 
         <!-- FORMULAIRE PRODUIT (Ajout / Modification) -->
-        <div id="product-form" class="add-form-container">
-          <h3 style="margin-bottom: 1.5rem; font-family: var(--font-title);">Nouveau Produit</h3>
+                <div id="product-form" class="add-form-container">
+          <h3 style="margin-bottom: 1.5rem; font-family: var(--font-title); font-size: 1.5rem;">Nouveau Produit</h3>
+          
           <div class="form-row">
             <div class="form-group">
-              <label>Image (depuis le PC)</label>
-              <input type="file" id="p-image" accept="image/*">
-              <small id="image-help" style="display:none; color:#d4af37; margin-top:5px;">Laissez vide pour garder l'image actuelle</small>
-            </div>
-            <div class="form-group">
-              <label>Nom complet</label>
+              <label>Nom complet du produit</label>
               <input type="text" id="p-name" placeholder="Ex: Sac en cuir">
             </div>
-          </div>
-          <div class="form-row">
             <div class="form-group">
               <label>Catégorie</label>
               <select id="p-category">
@@ -105,21 +99,30 @@
                 <option value="Autres">Autres</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-row">
             <div class="form-group">
               <label>Prix (FCFA)</label>
               <input type="number" id="p-price" placeholder="Ex: 45000">
             </div>
+            <div class="form-group">
+              <label>Image du produit (depuis le PC)</label>
+              <input type="file" id="p-image" accept="image/*" style="padding: 0.6rem; background: #fff;">
+            </div>
           </div>
 
-          <!-- NOUVEAU : Case à cocher -->
-          <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
-            <input type="checkbox" id="p-featured" style="width: 20px; height: 20px; cursor: pointer;">
-            <label for="p-featured" style="margin: 0; cursor: pointer; font-weight: 600;">Mettre en avant sur la page d'accueil (Best-Seller)</label>
+          <!-- La fameuse case à cocher bien stylée -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="p-featured" style="width: 20px; height: 20px; cursor: pointer; accent-color: #d4af37;">
+            <label for="p-featured" style="margin: 0; cursor: pointer; font-weight: 600; color: #374151;">⭐ Mettre en avant sur la page d'accueil (Best-Seller)</label>
           </div>
 
-          <button class="btn-add btn-green" id="btn-save-product" onclick="saveProduct()">Enregistrer</button>
-          <button class="btn-add btn-gray" style="margin-left: 10px;" onclick="toggleForm('product-form')">Annuler</button>
-        </div>
+          <div style="display: flex; gap: 1rem;">
+            <button class="btn-add btn-green" id="btn-save-product" onclick="saveProduct()">Enregistrer</button>
+            <button class="btn-add btn-gray" onclick="toggleForm('product-form')">Annuler</button>
+          </div>
+        </div> <!-- FIN DU FORMULAIRE -->
 
         <div class="table-container">
           <table class="admin-table">
